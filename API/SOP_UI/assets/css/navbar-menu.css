@@ -1,0 +1,108 @@
+﻿/* =========================================================
+   Navbar Menu — improved layout, separators & active state
+   Tempel di file CSS utama situs, atau di dalam <style> pada
+   Site.Master (di bagian <head>).
+   ========================================================= */
+
+/* ---------- Menu level 1 (navbar utama) ---------- */
+    .navbar-nav > .nav-item {
+        position: relative;
+    }
+
+    /* garis pemisah vertikal tipis antar menu level 1 */
+    .navbar-nav > .nav-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 55%;
+        width: 1px;
+        background-color: rgba(43, 43, 43, 0.18);
+    }
+
+    .navbar-nav > .nav-item > .nav-link {
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .navbar-nav > .nav-item > .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav > .nav-item > .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.14);
+        font-weight: 600;
+        border-bottom: 2px solid currentColor;
+    }
+
+/* ---------- Dropdown (menu level 2/3) ---------- */
+    .dropdown-menu {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        padding: 0.4rem 0;
+        min-width: 230px;
+    }
+
+    /* garis pemisah horizontal antar item dropdown */
+    .dropdown-menu > li:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .dropdown-item {
+        padding: 0.6rem 1.25rem;
+        transition: background-color 0.15s ease, padding-left 0.15s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f4f6f8;
+        padding-left: 1.5rem;
+    }
+
+    .dropdown-item.active {
+        background-color: #eef3ff;
+        color: #2653ff;
+        font-weight: 600;
+    }
+
+    .dropdown-item.active .menu-sub {
+        color: #6c85ff;
+    }
+
+/* ---------- Submenu (nested dropdown) ---------- */
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    /* hanya perlu kalau belum ada rule serupa di CSS existing kamu
+   untuk buka submenu bertingkat — kalau sudah ada, boleh hapus blok ini */
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+        top: 0;
+        left: 100%;
+        margin-top: -0.4rem;
+    }
+
+    .submenu-arrow {
+        float: right;
+        margin-left: 0.5rem;
+        opacity: 0.55;
+    }
+
+/* ---------- Label 2 baris (nama + NameKr) ---------- */
+    .menu-label {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3;
+    }
+
+    .menu-main {
+        font-size: 0.95rem;
+    }
+
+    .menu-sub {
+        font-size: 0.75rem;
+        color: #8a8f98;
+    }
