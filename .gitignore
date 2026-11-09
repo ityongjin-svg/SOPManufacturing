@@ -480,3 +480,11 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Tambahkan dua baris ini di PALING BAWAH file .gitignore di root repo SOPManufacturing
+# (file .gitignore yang sudah ada di sana), supaya password database dan log tidak ikut ke GitHub.
+
+# SOP_Service
+API/SOP_Service/connectionStrings.config
+API/SOP_Service/App_Data/Logs/
+
